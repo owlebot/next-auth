@@ -125,7 +125,9 @@ export async function callback(
           sub: user.id?.toString(),
         }
         const token = await callbacks.jwt({
+          // @ts-ignore
           token: defaultToken,
+          // @ts-ignore
           user,
           account,
           profile: OAuthProfile,
@@ -161,7 +163,7 @@ export async function callback(
           },
         })
       }
-
+      // @ts-ignore
       await events.signIn?.({ user, account, profile: OAuthProfile, isNewUser })
 
       // Handle first logins on new accounts
@@ -237,7 +239,9 @@ export async function callback(
           sub: loggedInUser.id?.toString(),
         }
         const token = await callbacks.jwt({
+          // @ts-ignore
           token: defaultToken,
+          // @ts-ignore
           user: loggedInUser,
           account,
           isNewUser,
@@ -273,6 +277,7 @@ export async function callback(
         })
       }
 
+      // @ts-ignore
       await events.signIn?.({ user: loggedInUser, account, isNewUser })
 
       // Handle first logins on new accounts
